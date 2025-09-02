@@ -113,3 +113,19 @@ search:
   path: search.xml
   field: post
   content: true
+markdown:
+  preset: default
+  render:
+    html: true        # 允许写原生 HTML
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-deflist
+    - markdown-it-mark
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
