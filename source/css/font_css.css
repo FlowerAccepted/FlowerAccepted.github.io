@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "XingKai";
+  src: url("/fonts/hyXingKai.ttf") format("truetype");
+  font-display: swap;
+}
+
+body {
+  font-family: "Ubuntu", "XingKai", sans-serif;
+}
