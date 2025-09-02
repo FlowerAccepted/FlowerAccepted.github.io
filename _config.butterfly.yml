@@ -286,9 +286,9 @@ aside:
     description:
     button:
       enable: true
-      icon: https://fecdn.luogu.com.cn/luogu/logo-single.png
+      icon: /img/luogu-logo.png
       text: 来关下呗 AwA
-      link: https://luogu.com.cn/user/FlowerAccepted
+      link: https://luogu.com.cn/user/1023732
   card_announcement:
     enable: true
     content: OIer 你们好啊！这是我的 github page 博客，欢迎大家来？~
