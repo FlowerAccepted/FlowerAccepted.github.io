@@ -92,7 +92,7 @@ footer_img: true
 
 # Website Background
 # Can set it to color or image url
-background: "#508979"
+background: /img/bg.png
 
 cover:
   # Disable the cover or not
