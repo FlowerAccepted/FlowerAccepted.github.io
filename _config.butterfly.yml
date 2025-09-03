@@ -287,7 +287,7 @@ aside:
     button:
       enable: true
       icon: fab luogu-logo
-      text: 来关注我 AwA
+      text: 关注我喵～AwA
       link: https://luogu.com.cn/user/1023732
   card_announcement:
     enable: true
@@ -463,7 +463,7 @@ math:
 
   katex:
     # Enable the copy KaTeX formula
-    copy_tex: false
+    copy_tex: true
 
 # --------------------------------------
 # Search
@@ -1051,7 +1051,7 @@ inject:
     # - <script src="xxxx"></script>
 
 skip_render:
-  - admin/**
+   - admin/**
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work
