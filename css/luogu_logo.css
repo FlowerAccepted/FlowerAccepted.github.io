@@ -1,0 +1,11 @@
+.luogu-logo {
+  display: inline-block;
+  width: 12px;                  /* span 本身宽度 */
+  height: 16px;                 /* span 高度 */
+  background-image: url('/img/luogu-logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px 16px;   /* 指定 logo 实际显示尺寸 */
+  vertical-align: middle;
+  margin-right: 1px;
+}

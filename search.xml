@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>格拉斯狗的飞逝の嗑人概率论</title>
+    <url>/2025/09/10/ggfp/</url>
+    <content><![CDATA[stO 原作者glass_goldfish Orz
+在此严肃学习并转载，望大家也要严肃学习。
+
+Part 1 前置知识（知道的敬请跳过）
+Part I 钟型曲线
+首先，我们要了解掷硬币。对于掷硬币，在大多数情况，概率都是一半对一半（50%50\%50% 正 50%50\%50% 反）。也就是说，当我们掷硬币的次数越多，那么抛到正面和反面的次数就越趋近于一半（大数定律）。抛的次数越多，那么这边抛到某个特定次数的概率就是正态分布曲线，即钟型曲线，如图。
+
+（图片来源于百度）
+以上纵轴是发生的概率，横轴是正面（或反面）出现的次数。这里正中央的灰色细线是代表正好 50%50\%50%，两边是分别递减。可以发现，自中间向两边，概率减小的会越来越缓慢，但是比较旁边的“地带”概率都是趋近于 000 的。这种基本事实叫做中心极限定理。
+Part II ppp 值的定义（简单死了）
+“ppp 值”这个词看上去老高深了，其实就是一句话：某个事情发生的概率。就这样，完了。
+在数学、科学上，我们经常以 ppp 值取 5%5\%5% 为“可置信水平”，即不发生概率在 5%5\%5% 以下就是基本上会发生（显然不是一定发生）。
+Part 2 开始磕人（？正文在这里
+在日常生活中，我们会经常观察到一些现象，比如远方传来某某小 A【数据删除】某某小 B 的言论（不一定是谣言，当然也不一定不是真的）。这样的话语，经常会一传十，十传百，导致可能本来就是谣言（比如开开玩笑），最后不得不被迫变为真实的话语，导致不必要的伤害 （bruh。
+《穿井得一人》之中告诉我们，对于一些听起来就不太真，甚至是听起来就是真的事件，我们也要去实践、去调查，搞清楚这件事是否真正发生。更进一步，世界上没有什么绝对的事情，就算你觉得它就是一定，那么也是有可能不是真的。就像，太阳从东边升起是一个常识，但是在某些外星球上，就不是这样子。也就是说，我们应该搞清楚事情发生的条件和概率，才能对事件进行更加准确的估计。
+对于一般的情况，我们只要 95%95\%95% 的置信水平（202020 次中能中 191919 次）就可以了。所以，我们要求出在钟型曲线之下 95%95\%95% 的面积。对于如上的“钟型曲线”来说，我们可以发现，与 95%95\%95% 的面积相对应的是 −196%∼196%-196\%\sim196\%−196%∼196%。在掷很多枚硬币的情况下，“标准差”是硬币总数平方根的两倍，即，如果硬币数量为 xxx，则误差幅度就是 196%2x=98%x\frac{196\%}{2\sqrt{x}}=\frac{98\%}{\sqrt{x}}​2√​x​​​​​196%​​=​√​x​​​​​98%​​。换句话说，有 95%95\%95% 的概率，在掷 xxx 枚硬币的时候，掷出来正面（或反面）的数量与 50%50\%50% 的准确值相比，差距不会超过 98%x\frac{98\%}{\sqrt{x}}​√​x​​​​​98%​​ [1]^{[1]}​[1]​​。
+总结上文一句话：误差幅度（95%95\%95% 置信水平）就是 98%98\%98% 除以硬币总数的平方根。现在，就可以进入“磕人”的环节了！
+我们从简单的情况开始推。假如，你发现某某小 A 出现了可能是【数据删除】某某小 B 的行为，然后你进行评估，认为小 A 真的【数据删除】小 B 的概率是 50%50\%50%。也就是说，这就是相当于“掷一枚硬币”。那么，如果想要让误差幅度进入你的“可置信水平”（一般取 ppp 值的“可置信水平” 5%5\%5%），那么就需要进行解不等式（设出现了 xxx 次才能达到）：
+98%x≤5%\frac{98\%}{\sqrt{x}}\le5\%
+​√​x​​​​​98%​​≤5%
+解得 x≥384.16x\ge384.16x≥384.16，在整数范围内就是 x≥385x\ge 385x≥385。也就是说，如果每天一次，那么只有一年多之后，你才能判断出这是真实发生的。所以，对于那些一看就不大真实，可信率只有 50%50\%50% 左右，甚至比 50%50\%50% 还要低的，可以忽略。这些对你来说是无用的信息。
+不过，你肯定会说：我身边还有概率更高的，比如 70%70\%70%，甚至 90%90\%90% 以上。没事！我们可以进行改动！我们发现：
+
+对于一项发生概率为 k%k\%k% 的事件，那么它的不发生率就是 (100−k)%(100-k)\%(100−k)%；
+然后，我们发现，总会出现一个数，使得 (50%)w=(100−k)%(50\%)^w=(100-k)\%(50%)​w​​=(100−k)%。此时，www 就是需要掷硬币的数量，来达到这个水平。这是因为，掷硬币正面（或反面）的概率为 50%50\%50%，掷 www 次连续掷到正面（或反面）的概率就是 (50%)w(50\%)^w(50%)​w​​，要保证和某件事情的“不发生率”相等，即 (50%)w=(100−k)%(50\%)^w=(100-k)\%(50%)​w​​=(100−k)%。
+
+在这里，我们提供了一份对照表（上面的 k,wk,wk,w 对照表，保留 222 位小数）：
+
+
+
+事件发生率 k%k\%k%
+相当于掷了硬币次数 www
+
+
+
+
+606060
+1.321.321.32
+
+
+656565
+1.521.521.52
+
+
+707070
+1.741.741.74
+
+
+757575
+2.002.002.00
+
+
+808080
+2.322.322.32
+
+
+858585
+2.742.742.74
+
+
+909090
+3.323.323.32
+
+
+959595
+4.324.324.32
+
+
+999999
+6.646.646.64
+
+
+
+说句闲话：其实发现在 k=99k=99k=99 的时候（概率为 99%99\%99%），也只代表了连续 6.646.646.64 次 50%50\%50%，并不是特别高。
+然后，我们就可以带进去用了。刚刚的式子是 98%x≤5%\frac{98\%}{\sqrt{x}}\le5\%​√​x​​​​​98%​​≤5%，这一次，我们使用如下式子（xxx 还是代表要出现的次数）：
+98%wx≤5%\frac{98\%}{\sqrt{wx}}\le5\%
+​√​wx​​​​​98%​​≤5%
+同样可以进行解，于是：
+
+
+
+事件发生率 k%k\%k%
+需要出现的次数 xxx
+整数范围内最小 xxx
+
+
+
+
+606060
+290.59290.59290.59
+291291291
+
+
+656565
+253.57253.57253.57
+254254254
+
+
+707070
+221.16221.16221.16
+222222222
+
+
+757575
+192.08192.08192.08
+193193193
+
+
+808080
+165.44165.44165.44
+166166166
+
+
+858585
+140.36140.36140.36
+141141141
+
+
+909090
+115.64115.64115.64
+116116116
+
+
+959595
+88.8988.8988.89
+898989
+
+
+999999
+57.8257.8257.82
+585858
+
+
+
+这说明，就算是 99%99\%99% 的单次置信概率，都需要 585858 次才能到 95%95\%95% 的“最终置信水平”。实际上，如果想要做到 99%99\%99% 的“置信水平”，那么只需要把 98%98\%98% 变为 129%129\%129% 即可。
+综上所述：单次代表不了什么，长远才是真理！不信谣，不传谣，从我做起！
+Part 3 引用（万分感谢 Qwq）
+
+[1]^{[1]}​[1]​​：由 杰弗里·S·罗森塔尔 作品《雷劈的真相——神奇的概率事件》之中第 111111 章（第 177177177 页的部分内容）改编。
+
+Part 4 这是啥 QAQ
+突发奇想，晚上睡觉想到的，然后第二天写下来了。没想到写了 2.8k+2.8k+2.8k+ 字。可得给我们班的“磕佬”们好好看看去。
+如果有不严谨之处，欢迎指出这个蒟蒻的错误（私信、at 等均可）！谢谢大家！
+说句闲话，这么点字写了我一个小时。
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/09/10/hello-world/</url>
+    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick Start
+Create a new post
+$ hexo new &quot;My New Post&quot;
+More info: Writing
+Run server
+$ hexo server
+More info: Server
+Generate static files
+$ hexo generate
+More info: Generating
+Deploy to remote sites
+$ hexo deploy
+More info: Deployment
+]]></content>
+  </entry>
+  <entry>
+    <title>主页</title>
+    <url>/2025/09/02/%E4%B8%BB%E9%A1%B5/</url>
+    <content><![CDATA[恭喜！你是从 2025 年 8 月 31 日 15:45
+起第个来到这里的用户！
+你好，欢迎来到花朵Accepted的主页。
+代词请用他。
+我的文章
+算法模版
+私信互关规则 | Interrelation rules
+自我介绍
+
+我是一朵花; 一个小蒟蒻
+我是Matheus28粉丝
+我是“尊贵”的洛谷付费用户
+我还是***** ****** ******的一名初一学生, 是一只“***”
+你可以叫我accepted或饼干同学
+
+代表作&amp;推荐文章
+题解
+题解： AT_abc391_d [ABC391D] Gravity
+题解：P1775 石子合并（弱化版）
+博客
+数论之线性筛详解
+初二上日寄
+工程
+随手造的实用小工具&amp;项目合集
+题目
+还是 28 因数
+闲言碎语 &amp; 小整活
+
+
+菜，就多练，输不起就别玩。以前是以前，现在是现在，别把以前当现在！
+在这个太阳西斜的世界里，人人都是M2B；不论别人怎么说，酥鱼都是世界上最幸福的女孩！…啊呸，MuYuMC 是世界上最幸福的猫娘！（后面这条 xpg 让改的）
+抽象小波
+
+
+卡waiting
+pm2风格神经
+--------------------------------------     HN:human numpty |-/\\\-----/\\\-----/\\\\\\---/\\\-----        人类智障      |-\/\\\----\/\\\----\/\\\/\\\-\/\\\----                     |--\/\\\\\\\\\\\\----\/\\\//\\\\/\\\---                     |---\/\\\//////\\\----\/\\\\//\\\/\\\--                     |----\/\\\----\/\\\----\/\\\-\//\\\\\\-                     |-----\///-----\///-----\///---\//////-                     |--------------------------------------                     |
+语言大乱炖：
+python java pascal#include &lt;algorithm&gt;using namespace std;import randomclass Node:    var:    x:int;    y:int;    def __init__(self, value):        self.x = 0;        self.y = 0;new Node a[1000000];int main() &#123;    new int n;    cin &gt;&gt; n;    for i in range(1, n + 1):        cin &gt;&gt; a[i].x &gt;&gt; a[i].y;    sort(a + 1, a + n + 1, lambda a, b: a.x &lt; b.x or (a.x == b.x and a.y &lt; b.y));    for i in range(1, n + 1):        cout &lt;&lt; a[i].x &lt;&lt; &quot; &quot; &lt;&lt; a[i].y &lt;&lt; endl;    cout &lt;&lt; random.choice(a).x &lt;&lt; &#x27; &#x27; &lt;&lt; random.choice(a).y &lt;&lt; endl;    return 0;    &#125;
+a+b problem：（抽象版）
+#include &lt;iostream&gt;#define OIers using#define are namespace#define XuanXue std#define they int#define say main()#define I int a, b;#define will cin &gt;&gt; a &gt;&gt; b;#define AK cout &lt;&lt; a + b;#define IOI return 0;OIers are XuanXue; they say &#123;I will AK IOI&#125;
+大事祭
+
+
+
+时间
+事件
+相关链接&amp;注释
+
+
+
+
+2024.8.16
+第一次获得等级分
+【LGR-196-Div.4】洛谷入门赛 #26
+
+
+2024.9.3
+绿名
+-
+
+
+2024.9.30
+ACACAC 100题
+[NOIP2015 提高组] 跳石头 记录179157589
+
+
+2024.10.1
+ACACAC 第一道绿题
+P7840 「C.E.L.U-03」重构 记录179345375
+
+
+2024.10.21
+橙名
+-
+
+
+2024.10.26
+参加第一场CSPJ、CSPS
+-
+
+
+2024.10.26
+我抢到了CSPJ2024民间自测#1报名！
+-
+
+
+2024.11.21
+拿下首A谔谔
+[AHC039A] Purse Seine Fishing 记录188526970
+
+
+2024.11.25
+AKAKAK 全场
+【LGR-207-Div.4】洛谷入门赛 #29
+
+
+2024.11.16
+粉丝 222 ^ 22​2​​ 祭
+-
+
+
+2024.11.19
+CSPJ 一等，S 二等
+-
+
+
+2024.11.20
+巧
+记录190000015
+
+
+2024.12.2
+红名、咕值排名正好4k祭！
+-
+
+
+2025.1.8
+粉丝 232 ^ 32​3​​ 祭
+-
+
+
+2025.1.9
+ACACAC 200题
+P11532 [THUPC 2025 初赛] 好成绩 记录 197576845
+
+
+2025.1.14
+cff_0102  贴我祭！！
+已撤回
+
+
+2025.1.25
+AtCoder棕名祭
+排名
+
+
+2025.1.26
+通过 222^22​2​​ 篇题解祭
+-
+
+
+2025.1.28
+通过 101010 篇题解祭
+-
+
+
+2025.2.4
+ACACAC 第一道蓝题
+P2827 [NOIP 2016 提高组] 蚯蚓 记录2012/21/999
+
+
+2025.2.5
+题解来到了文章广场第一篇
+题解：AT_abc391_a [ABC391A] Lucky Direction 2025.2.8结束
+
+
+2025.2.5
+粉丝 242 ^ 42​4​​ 祭
+-
+
+
+2025.2.7
+啥？冰糖鸽子关注了我？！
+凌晨关注，于当日上午取关
+
+
+2025.2.18
+咕值排名 ≤1000\le 1000≤1000 祭
+gp306\kern{1em} rk797
+
+
+2025.2.22
+QPQPQP！
+【数据删除】图寄了
+
+
+2025.2.22
+主页访问 1k1k1k 祭
+-
+
+
+2025.2.24
+ACACAC 第一道紫题
+P1763 埃及分数 记录204586386
+
+
+2025.3.9
+ACACAC 300题
+B3635 硬币问题 记录 206871849
+
+
+2025.4.4
+粉丝 252 ^ 52​5​​ 祭
+-
+
+
+2025.8.6
+ACACAC 第一道黑题！虽然是 shr_ 老师带着写的
+P5056 【模板】插头 DP 记录 22929996
+
+
+2025.8.10
+粉丝 262 ^ 62​6​​ 祭
+-
+
+
+2025.8.15
+今天是日本裕仁天皇“玉音放送”宣告日本投降的80周年，也是我 918 提交寂
+勿忘国耻，不忘法西斯主义对全人类的伤害。
+
+
+2025.3.9
+ACACAC 400题、提交 1k
+B4326 [语言月赛 202505] 毕业论文 记录 233029047 话说为啥是始作反作弊题
+
+
+-
+敬请期待
+-
+
+
+
+ToDo list
+
+ 数论之线性筛详解
+ 杂交数据结构之分块链表
+
+实用链接
+VSCode
+Ubuntu
+Github
+cjl IOI 游记
+
+返回顶部||回到主站
+]]></content>
+  </entry>
+  <entry>
+    <title>少年志爱国情</title>
+    <url>/2025/09/03/%E5%B0%91%E5%B9%B4%E5%BF%97%E7%88%B1%E5%9B%BD%E6%83%85/</url>
+    <content><![CDATA[叠层甲：这回的作文会不会一如既往的糖呢？好怕怕，轻喷～
+少年志爱国情–阅兵式观后感
+2025 年 9 月 3 日，是一个值得铭记的日期，是中国人民抗日战争胜利暨世界反法西斯战争胜利 80 周年日。盛大的阅兵仪式，在天安门广场开展，令我心潮澎湃，也被两个景象，打动至深。
+先是参加过抗战几名百岁老兵。有“老八路”，也有参加抗战的国民党军人。国家危难之际，中共提出“统一战线”，竟然得到了被派来讨伐他们的两位少帅的支持，以至最后当局被迫妥协。可见，在爱国情面前，内战的勾心斗角、和任何阻挠其的想法、势力都是多么不堪一击。为什么我眼里常含泪水？因为我对这片土地爱得深沉！有了爱国情，人民最终取得了抗战的伟大胜利。
+解说员读出老兵们的名字及他们的年龄：×××，一百岁，×××，一百零二岁……我不由得一怔：他们参军之时只不到二十岁！八九十年前，他们还是少年，在捐躯赴国难之少年志的驱使下，投身抗日事业，志向最终升华为爱国情感，永垂不朽！
+再是最后一个接受检阅的梯队：核导弹二队。一枚大国重器，需三辆几十轮的军车分开驮着，雄赳赳、缓缓地经过天安门城楼。这，是守卫祖国尊严主权的闪亮王牌，也是广大科研工作者们沥尽心血、隐姓埋名的成果。这钢铁洪流背后，又有怎样的感人故事？少年军人们驾驶着它们，我想，科研工作者们也一定是立下少年志向，要像钱学森、邓稼先院士那样研制新型武器，为新时代的祖国做出自己的一份贡献。
+接下来，便是我们少年的时代。新时代的我们，更要担当起国家的未来。我们要传承老兵们“捐躯赴国难，是死忽如归”的报国情怀，也要延续核弹科研工作者们“春蚕到死丝方尽，蜡炬成灰泪始干”的奉献精神。我们，只有用知识武装自己，用实干丰富自己，用思想纯化自己，用爱国情冶炼少年志，才能报答伟大的祖国，才能不负先烈们的牺牲！
+少年们，朝着爱国之志努力吧！
+]]></content>
+  </entry>
+  <entry>
+    <title>随手造的实用小工具</title>
+    <url>/2025/09/02/%E9%9A%8F%E6%89%8B%E9%80%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B0%8F%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[0x-1. 前言
+提供源代码直接复制，但是在文章这里不太方便吧。
+如有访问困难可先在网上搜索 github 国内代理网站代替官网，实在不行可以考虑私信我解决。
+我最近遇到一些小问题，比如拼接几个图片啦，画几个分子图啦，模糊一下图片啦，总之最后都是跟 copilot 聊了几句就完事了。
+最近有人问我要这些，也为了方便大家，那我就放出来罢。
+后续会更新。
+0x0. 环境配置
+基本所有项目均使用 Python。
+咱先下个 Python，请在命令行依次全部输入
+line-numberspy --versionpython --versionpython3 --version
+如果有任何一个返回形如 Python 3.&lt;x&gt;.&lt;y&gt; 并且 &lt;x&gt; 为大于等于 10 的整数，就说明你的环境初步好了。
+如果没成功，可以访问Python 官网（这个国内太慢，但是若有一周天数根棍棍是可以 10 秒内下完的），点击 Download，然后点击页面中间偏左的金色大按钮就可以开始下载了。下载完打开包安装。装完了输入 python3 --version 测试一下。
+着急也没有棍可以考虑 anaconda，虽然包很大，有 1GB，但是一两分钟就下下来了。下完了打开文件安装，遇到让你输入就输回车。安完了开个新的命令行窗口，前面会有一个 (base)。现在你的 Python 环境就配置好了。装完了输入 python --version 测试一下。
+这里有许多高级选项，
+下一步装包，每个小项目需要的包的安装代码会在后续给出。
+特别提示：为了提升包下载速度（当然你有棍子可以不管），建议运行下列命令，设置镜像源：
+line-numberspython -m pip install --upgrade pippip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+代码运行方式：命令行 &lt;你测试可用的那个 py/python/python3&gt; &lt;文件路径&gt; 别加尖括号哈 。
+0x1. 图片混淆器
+简介
+
+这玩意功能很简单啊，也实用，适合用来【】CCF。
+亲测对于笔迹效果极好，可以让人看出笔迹而 AI 不能，建议搭配画图软件或 OneNote 与一个好使的触控板或数位板。
+依赖包安装
+命令行运行以下代码：
+pip install gradio opencv-python
+代码
+github 仓库
+line-numbersimport cv2import numpy as npimport gradio as grdef add_random_noise(img, noise_level=30):    # img: numpy array, BGR    noise = np.random.randint(-noise_level, noise_level + 1, img.shape, dtype=&#x27;int16&#x27;)    noisy_img = img.astype(&#x27;int16&#x27;) + noise    noisy_img = np.clip(noisy_img, 0, 255).astype(&#x27;uint8&#x27;)    return noisy_imgdef blur_edges(img, kernel_size=15):    # 创建掩码，仅模糊边缘    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    edges = cv2.Canny(gray, 100, 200)    mask = cv2.dilate(edges, None, iterations=3)    mask = cv2.GaussianBlur(mask, (kernel_size, kernel_size), 0)    mask = mask / 255.0    blurred = cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)    mask = mask[..., np.newaxis]    result = img * (1 - mask) + blurred * mask    return result.astype(&#x27;uint8&#x27;)def adjust_contrast(img, contrast):    # contrast: 0.5~2.0，1.0为原始对比度    img = img.astype(np.float32)    img = (img - 127.5) * contrast + 127.5    img = np.clip(img, 0, 255).astype(np.uint8)    return imgdef remove_border(img, tol=10):    &quot;&quot;&quot;    自动去除图片四周的纯色边框（如白边、黑边等）。    tol: 容差，越大越宽松。    &quot;&quot;&quot;    if img.ndim == 3:        mask = (np.abs(img - img[0,0]).sum(axis=2) &gt; tol)    else:        mask = (np.abs(img - img[0,0]) &gt; tol)    coords = np.argwhere(mask)    if coords.size == 0:        return img  # 全图纯色    y0, x0 = coords.min(axis=0)    y1, x1 = coords.max(axis=0) + 1    cropped = img[y0:y1, x0:x1]    return croppeddef process_image(input_img, noise_level, kernel_size, contrast, remove_border_flag):    img = cv2.cvtColor(input_img, cv2.COLOR_RGB2BGR)    if remove_border_flag:        img = remove_border(img)    img = adjust_contrast(img, contrast)    noisy_img = add_random_noise(img, noise_level)    result_img = blur_edges(noisy_img, kernel_size)    return cv2.cvtColor(result_img, cv2.COLOR_BGR2RGB)demo = gr.Interface(    fn=process_image,    inputs=[        gr.Image(type=&quot;numpy&quot;, label=&quot;上传图片&quot;),        gr.Slider(0, 255, value=60, label=&quot;噪声强度&quot;),        gr.Slider(1, 51, value=15, step=2, label=&quot;模糊卷积核大小&quot;),  # 起始值改为1        gr.Slider(0.5, 2.0, value=1.0, step=0.05, label=&quot;对比度调整&quot;),        gr.Checkbox(label=&quot;去除图片边框等非图片本身信息&quot;)    ],    outputs=gr.Image(type=&quot;numpy&quot;, label=&quot;处理后图片&quot;),    title=&quot;图片随机噪声与边缘模糊工具&quot;,    description=&quot;上传图片，插入随机噪声、模糊边缘、可调整对比度，并可自动去除图片边框等非图片本身信息。&quot;)if __name__ == &quot;__main__&quot;:    demo.launch()
+运行一会后会弹出一个链接，在浏览器上打开它。
+0x2. 图片锐化器
+简介
+
+这是一个本地应用，使用 PyQT5创建，可以提升图片锐度对比度。
+真正的小应用 be like。
+依赖包安装
+命令行运行以下代码：
+pip install PyQT5 opencv-python
+代码
+github 仓库
+line-numbersimport sysimport cv2import numpy as npfrom PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QFileDialogfrom PyQt5.QtGui import QImage, QPixmapfrom PyQt5.QtCore import Qtclass ImageSharpener(QWidget):    def __init__(self):        super().__init__()        self.initUI()        self.image = None        self.sharpened_image = None    def initUI(self):        self.setWindowTitle(&#x27;Image Sharpener&#x27;)        layout = QVBoxLayout()        self.imageLabel = QLabel(self)        self.imageLabel.setAlignment(Qt.AlignCenter)        layout.addWidget(self.imageLabel)        loadButton = QPushButton(&#x27;Load Image&#x27;, self)        loadButton.clicked.connect(self.loadImage)        layout.addWidget(loadButton)        sharpenButton = QPushButton(&#x27;Sharpen Image&#x27;, self)        sharpenButton.clicked.connect(self.sharpenImage)        layout.addWidget(sharpenButton)        saveButton = QPushButton(&#x27;Save Image&#x27;, self)        saveButton.clicked.connect(self.saveImage)        layout.addWidget(saveButton)        self.setLayout(layout)        self.resize(400, 400)    def loadImage(self):        fileName, _ = QFileDialog.getOpenFileName(self, &quot;Open Image&quot;, &quot;&quot;, &quot;Image Files (*.png *.jpg *.bmp)&quot;)        if fileName:            self.image = cv2.imread(fileName)            self.displayImage(self.image)            self.sharpened_image = None    def sharpenImage(self):        if self.image is not None:            kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])            self.sharpened_image = cv2.filter2D(self.image, -1, kernel)            self.displayImage(self.sharpened_image)    def saveImage(self):        if self.sharpened_image is not None:            fileName, _ = QFileDialog.getSaveFileName(self, &quot;Save Image&quot;, &quot;&quot;, &quot;PNG (*.png);;JPEG (*.jpg *.jpeg);;All Files (*)&quot;)            if fileName:                cv2.imwrite(fileName, self.sharpened_image)    def displayImage(self, img):        qformat = QImage.Format_RGB888        outImage = QImage(img.data, img.shape[1], img.shape[0], img.strides[0], qformat)        outImage = outImage.rgbSwapped()        pixmap = QPixmap.fromImage(outImage)        self.imageLabel.setPixmap(pixmap.scaled(self.imageLabel.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))if __name__ == &#x27;__main__&#x27;:    app = QApplication(sys.argv)    ex = ImageSharpener()    ex.show()    sys.exit(app.exec_())
+依赖包安装
+命令行运行以下代码：
+pip install gradio opencv-python
+0x3. 图片拼接小工具
+简介
+
+结果，“在新标签页打开图片”截图：
+
+依赖包安装
+命令行运行以下代码：
+pip install gradio opencv-python
+代码
+github 仓库
+line-numbersimport gradio as grfrom PIL import Image, UnidentifiedImageErrorfrom typing import List, Union, Tupleimport reimport mathdef hex_to_rgb(color) -&gt; Tuple[int,int,int]:    &quot;&quot;&quot;兼容多种颜色输入：       - &#x27;#rrggbb&#x27; 或 &#x27;#rgb&#x27;       - &#x27;rgb(r,g,b)&#x27; 或 &#x27;rgba(r,g,b,a)&#x27;       - (r,g,b) 或 [r,g,b]       返回 (r,g,b)，解析失败时返回白色 (255,255,255)    &quot;&quot;&quot;    if not color:        return (255, 255, 255)    # 已经是序列    if isinstance(color, (tuple, list)):        try:            return tuple(int(max(0, min(255, int(c)))) for c in color[:3])        except Exception:            return (255, 255, 255)    # 字符串处理    if isinstance(color, str):        s = color.strip()        # 十六进制        if s.startswith(&quot;#&quot;):            s = s.lstrip(&quot;#&quot;)            if len(s) == 3:                s = &quot;&quot;.join([c*2 for c in s])            if len(s) == 6:                try:                    return tuple(int(s[i:i+2], 16) for i in (0, 2, 4))                except Exception:                    return (255, 255, 255)        # rgb(...) 或 rgba(...)        if s.lower().startswith(&quot;rgb&quot;):            nums = re.findall(r&quot;(-?\d+)&quot;, s)            if len(nums) &gt;= 3:                try:                    return tuple(min(255, max(0, int(n))) for n in nums[:3])                except Exception:                    return (255, 255, 255)    # 不能解析时回退白色    return (255, 255, 255)def open_images(files: Union[List[str], str]):    if not files:        return []    if isinstance(files, str):        files = [files]    images = []    try:        for fp in files:            img = Image.open(fp).convert(&quot;RGB&quot;)            images.append(img)    except UnidentifiedImageError:        raise ValueError(&quot;上传的文件中包含无法识别为图片的文件。&quot;)    except Exception as e:        raise ValueError(f&quot;读取图片出错：&#123;e&#125;&quot;)    return imagesdef resize_keep_aspect(img: Image.Image, target_w: int = None, target_h: int = None):    w, h = img.size    if target_w is None and target_h is None:        return img    if target_h is None:        scale = target_w / w    elif target_w is None:        scale = target_h / h    else:        scale_w = target_w / w        scale_h = target_h / h        scale = min(scale_w, scale_h)    new_size = (max(1, int(w * scale)), max(1, int(h * scale)))    return img.resize(new_size, Image.LANCZOS)def layout_grid_metrics(images: List[Image.Image], cols: int, spacing: int):    # images in list order -&gt; fill rows left-to-right, top-to-bottom    n = len(images)    rows = math.ceil(n / cols)    # compute column widths and row heights    col_widths = [0] * cols    row_heights = [0] * rows    for idx, im in enumerate(images):        r = idx // cols        c = idx % cols        col_widths[c] = max(col_widths[c], im.width)        row_heights[r] = max(row_heights[r], im.height)    total_w = sum(col_widths) + spacing * (cols - 1)    total_h = sum(row_heights) + spacing * (rows - 1)    return total_w, total_h, col_widths, row_heightsdef render_grid(images: List[Image.Image], cols: int, spacing: int, bg_rgb: Tuple[int,int,int]):    n = len(images)    rows = math.ceil(n / cols)    total_w, total_h, col_widths, row_heights = layout_grid_metrics(images, cols, spacing)    out = Image.new(&quot;RGB&quot;, (total_w, total_h), bg_rgb)    # compute x offsets for columns and y offsets for rows    x_offsets = []    x = 0    for w in col_widths:        x_offsets.append(x)        x += w + spacing    y_offsets = []    y = 0    for h in row_heights:        y_offsets.append(y)        y += h + spacing    # paste each image centered in its cell    for idx, im in enumerate(images):        r = idx // cols        c = idx % cols        cell_x = x_offsets[c]        cell_y = y_offsets[r]        cell_w = col_widths[c]        cell_h = row_heights[r]        paste_x = cell_x + (cell_w - im.width) // 2        paste_y = cell_y + (cell_h - im.height) // 2        out.paste(im, (paste_x, paste_y))    return out, total_w, total_hdef find_best_grid(images: List[Image.Image], spacing: int, bg_rgb: Tuple[int,int,int],                   max_cols_search: int, objective: str, order_strategy: str):    n = len(images)    if max_cols_search &lt;= 0:        max_cols_search = n    max_cols_search = min(max_cols_search, n)    # generate different orderings to try    def order_images(strategy):        if strategy == &quot;original&quot;:            return images[:]        if strategy == &quot;width&quot;:            return sorted(images, key=lambda im: im.width, reverse=True)        if strategy == &quot;height&quot;:            return sorted(images, key=lambda im: im.height, reverse=True)        if strategy == &quot;area&quot;:            return sorted(images, key=lambda im: im.width*im.height, reverse=True)        return images[:]    best = None  # tuple (metric_value, out_image, cols, w, h, order_name)    strategies = [order_strategy] if order_strategy != &quot;all&quot; else [&quot;original&quot;,&quot;width&quot;,&quot;height&quot;,&quot;area&quot;]    for cols in range(1, max_cols_search+1):        for strat in strategies:            seq = order_images(strat)            out_img, w, h = render_grid(seq, cols, spacing, bg_rgb)[0:3]            if objective == &quot;area&quot;:                metric = w * h            elif objective == &quot;maxside&quot;:                metric = max(w, h)            elif objective == &quot;width&quot;:                metric = w            elif objective == &quot;height&quot;:                metric = h            else:                metric = w * h            if best is None or metric &lt; best[0]:                best = (metric, out_img, cols, w, h, strat)    return bestdef concat_images(files: Union[List[str], str],                  mode: str = &quot;scale_height&quot;,                  orientation: str = &quot;horizontal&quot;,                  spacing: int = 0,                  bg_color: str = &quot;#ffffff&quot;,                  size_ref: str = &quot;max&quot;,                  auto_grid: bool = False,                  max_grid_cols: int = 0,                  grid_objective: str = &quot;area&quot;,                  grid_order: str = &quot;height&quot;):    &quot;&quot;&quot;    新增参数：      - auto_grid: 是否启用自动网格布局（多行多列）以尽量减小画布      - max_grid_cols: 搜索最大列数（0 表示最大为图片数）      - grid_objective: &#x27;area&#x27; | &#x27;maxside&#x27; | &#x27;width&#x27; | &#x27;height&#x27;      - grid_order: &#x27;original&#x27;|&#x27;width&#x27;|&#x27;height&#x27;|&#x27;area&#x27;|&#x27;all&#x27;    &quot;&quot;&quot;    try:        images = open_images(files)    except ValueError as e:        return str(e)    if not images:        return None    # 先按已有模式处理每张图片（scale/fit/stretch/none）    widths = [im.width for im in images]    heights = [im.height for im in images]    max_w, max_h = max(widths), max(heights)    min_w, min_h = min(widths), min(heights)    processed = []    if mode == &quot;none&quot;:        if len(set(widths)) &gt; 1 or len(set(heights)) &gt; 1:            return &quot;所有图片尺寸必须一致，或选择其他处理模式。&quot;        processed = images    elif mode == &quot;scale_height&quot;:        target_h = max_h if size_ref == &quot;max&quot; else min_h        for im in images:            processed.append(resize_keep_aspect(im, target_h=target_h))    elif mode == &quot;scale_width&quot;:        target_w = max_w if size_ref == &quot;max&quot; else min_w        for im in images:            processed.append(resize_keep_aspect(im, target_w=target_w))    elif mode == &quot;fill&quot;:        for im in images:            w, h = im.size            scale = max(max_w / w, max_h / h)            new_size = (max(1, int(w * scale)), max(1, int(h * scale)))            resized = im.resize(new_size, Image.LANCZOS)            canvas = Image.new(&quot;RGB&quot;, (max_w, max_h), hex_to_rgb(bg_color))            offset_x = (max_w - resized.width) // 2            offset_y = (max_h - resized.height) // 2            canvas.paste(resized, (offset_x, offset_y))            processed.append(canvas)    elif mode == &quot;stretch&quot;:        for im in images:            processed.append(im.resize((max_w, max_h), Image.LANCZOS))    else:        return &quot;未知的处理模式。&quot;    # 如果启用自动网格布局 -&gt; 在 processed 上搜索最优网格    bg_rgb = hex_to_rgb(bg_color)    if auto_grid:        best = find_best_grid(processed, spacing, bg_rgb, max_grid_cols, grid_objective, grid_order)        if best is None:            return &quot;无法生成网格布局。&quot;        _, out_img, best_cols, best_w, best_h, used_order = best        return out_img    # 否则，按横向或纵向线性拼接（保持原逻辑）    widths = [im.width for im in processed]    heights = [im.height for im in processed]    n = len(processed)    if orientation == &quot;horizontal&quot;:        total_w = sum(widths) + spacing * (n - 1)        total_h = max(heights)        out = Image.new(&quot;RGB&quot;, (total_w, total_h), bg_rgb)        x = 0        for im in processed:            y = (total_h - im.height) // 2            out.paste(im, (x, y))            x += im.width + spacing    else:        total_w = max(widths)        total_h = sum(heights) + spacing * (n - 1)        out = Image.new(&quot;RGB&quot;, (total_w, total_h), bg_rgb)        y = 0        for im in processed:            x = (total_w - im.width) // 2            out.paste(im, (x, y))            y += im.height + spacing    return outwith gr.Blocks() as demo:    gr.Markdown(&quot;# 图片拼接小工具（支持不同尺寸 &amp; 自动网格布局）\n上传多张图片，选择处理模式与拼接方式。&quot;)    with gr.Row():        file_input = gr.File(label=&quot;上传图片&quot;, file_count=&quot;multiple&quot;, type=&quot;filepath&quot;)        mode = gr.Radio(choices=[            (&quot;等比缩放到相同高度&quot;, &quot;scale_height&quot;),            (&quot;等比缩放到相同宽度&quot;, &quot;scale_width&quot;),            (&quot;等比缩放并填充到最大尺寸&quot;, &quot;fill&quot;),            (&quot;拉伸到相同尺寸（可能变形）&quot;, &quot;stretch&quot;),            (&quot;不处理（要求相同尺寸）&quot;, &quot;none&quot;)        ], value=&quot;scale_height&quot;, label=&quot;处理模式&quot;)    with gr.Row():        size_ref = gr.Radio(choices=[(&quot;以最大尺寸为准&quot;, &quot;max&quot;), (&quot;以最小尺寸为准&quot;, &quot;min&quot;)], value=&quot;max&quot;, label=&quot;参考尺寸（用于缩放）&quot;)        orientation = gr.Radio(choices=[(&quot;横向拼接&quot;, &quot;horizontal&quot;), (&quot;纵向拼接&quot;, &quot;vertical&quot;)], value=&quot;horizontal&quot;, label=&quot;拼接方向（线性）&quot;)    with gr.Row():        spacing = gr.Slider(minimum=0, maximum=200, value=0, step=1, label=&quot;图片间距（像素）&quot;)        bg_color = gr.ColorPicker(value=&quot;#ffffff&quot;, label=&quot;背景颜色&quot;)    with gr.Row():        auto_grid = gr.Checkbox(label=&quot;启用自动网格布局（让画布尽量小）&quot;, value=False)        max_grid_cols = gr.Slider(minimum=0, maximum=20, step=1, value=0, label=&quot;网格最大列数（0=自动到图片数）&quot;)    with gr.Row():        grid_objective = gr.Radio(choices=[            (&quot;最小面积&quot;, &quot;area&quot;),            (&quot;最小最大边（minimize max(width,height))&quot;, &quot;maxside&quot;),            (&quot;最小宽度&quot;, &quot;width&quot;),            (&quot;最小高度&quot;, &quot;height&quot;)        ], value=&quot;area&quot;, label=&quot;网格优化目标&quot;)        grid_order = gr.Radio(choices=[            (&quot;只用当前顺序&quot;, &quot;original&quot;),            (&quot;按宽降序&quot;, &quot;width&quot;),            (&quot;按高降序&quot;, &quot;height&quot;),            (&quot;按面积降序&quot;, &quot;area&quot;),            (&quot;全部策略尝试&quot;, &quot;all&quot;)        ], value=&quot;height&quot;, label=&quot;排序策略&quot;)    output = gr.Image(type=&quot;pil&quot;, label=&quot;拼接结果&quot;)    btn = gr.Button(&quot;开始拼接&quot;)    btn.click(fn=concat_images, inputs=[file_input, mode, orientation, spacing, bg_color, size_ref, auto_grid, max_grid_cols, grid_objective, grid_order], outputs=output)if __name__ == &quot;__main__&quot;:    demo.launch()
+0x4. 题解创建器
+简介
+
+又一个迷你应用。输入题号格式和主站“题目跳转”格式相同（输入数字直接跳转 P 题库）。
+依赖包安装
+命令行运行以下代码：
+pip install gradio opencv-python
+代码
+github 仓库
+line-numbersimport gradio as grdef f(s):    if &#x27;0&#x27; &lt;= s[0] &lt;= &#x27;9&#x27;:        s = &#x27;P&#x27; + s    return f&quot;[https://www.luogu.com.cn/article/_new?problem=&#123;s&#125;](https://www.luogu.com.cn/article/_new?problem=&#123;s&#125;)&quot;with gr.Blocks() as app:    id = gr.Textbox(label=&quot;洛谷题目编号&quot;)    sub = gr.Button(&quot;生成题解模版&quot;)    out = gr.Markdown(&quot;&quot;)    sub.click(f, id, outputs=out)app.launch()
+0x5. 分子画图器
+简介
+
+很实用的分子图绘画器，输入 SMILES 代码，输出分子图，还提供 SVG 下载和存档！
+关于 SMILES 代码，可以参考官方文档或者百度搜索。
+请将代码放在专用目录下运行，因为这个有存档
+依赖包安装
+命令行运行以下代码：
+pip install gradio rdkit pillow
+代码
+请将代码放在专用目录下运行，因为这个有存档
+github 仓库
+line-numbersimport osimport ioimport csvimport uuidfrom datetime import datetimefrom rdkit import Chemfrom rdkit.Chem import Draw# try multiple import paths for rdMolDraw2D for RDKit distribution differencestry:    from rdkit.Chem import rdMolDraw2D  # common in some buildsexcept Exception:    try:        from rdkit.Chem.Draw import rdMolDraw2D  # alternative location    except Exception:        # last attempt: maybe accessible as attribute        rdMolDraw2D = getattr(Draw, &quot;rdMolDraw2D&quot;, None)from PIL import Imageimport gradio as gr# PathsROOT_DIR = os.path.dirname(os.path.abspath(__file__))IMAGES_DIR = os.path.join(ROOT_DIR, &quot;images&quot;)ARCHIVE_PATH = os.path.join(ROOT_DIR, &quot;smiles_archive.csv&quot;)os.makedirs(IMAGES_DIR, exist_ok=True)# Ensure CSV has full header (id,timestamp,smiles,saved_image,notes)if not os.path.exists(ARCHIVE_PATH):    with open(ARCHIVE_PATH, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:        writer = csv.writer(f)        writer.writerow([&quot;id&quot;, &quot;timestamp&quot;, &quot;smiles&quot;, &quot;saved_image&quot;, &quot;notes&quot;])def mol_image_from_smiles(smiles: str, width: int = 300, height: int = 300):    if not smiles or not smiles.strip():        return None, &quot;Empty SMILES input.&quot;    mol = Chem.MolFromSmiles(smiles.strip())    if mol is None:        return None, &quot;无法解析 SMILES（无效格式）.&quot;    try:        img = Draw.MolToImage(mol, size=(int(width), int(height)))        if not isinstance(img, Image.Image):            img = Image.fromarray(img)        return img, None    except Exception as e:        return None, f&quot;绘制分子时出错: &#123;e&#125;&quot;def mol_svg_from_smiles(smiles: str, width: int = 300, height: int = 300):    if not smiles or not smiles.strip():        return None, &quot;Empty SMILES input.&quot;    mol = Chem.MolFromSmiles(smiles.strip())    if mol is None:        return None, &quot;无法解析 SMILES（无效格式）.&quot;    if rdMolDraw2D is None:        # rdMolDraw2D not available in this RDKit build        return None, (&quot;当前 RDKit 构建中缺少 rdMolDraw2D（无法生成 SVG）。&quot;                      &quot; 建议使用 conda 安装 RDKit（例如：conda install -c conda-forge rdkit），&quot;                      &quot; 或选择 PNG 输出格式。&quot;)    try:        drawer = rdMolDraw2D.MolDraw2DSVG(int(width), int(height))        rdMolDraw2D.PrepareAndDrawMolecule(drawer, mol)        drawer.FinishDrawing()        svg = drawer.GetDrawingText()        return svg, None    except Exception as e:        return None, f&quot;生成 SVG 时出错: &#123;e&#125;&quot;def handle_draw(smiles, width, height, fmt):    if fmt == &quot;SVG&quot;:        svg, err = mol_svg_from_smiles(smiles, width, height)        if err:            return None, err        # Gradio Image expects PIL for preview; convert SVG to PNG in-memory for preview        try:            # Try render SVG to PNG using PIL + frombuffer via cairosvg if available            # If cairosvg isn&#x27;t installed, we fallback to returning a small raster via RDKit PNG            try:                import cairosvg                png_bytes = cairosvg.svg2png(bytestring=svg.encode(&quot;utf-8&quot;), output_width=int(width), output_height=int(height))                img = Image.open(io.BytesIO(png_bytes)).convert(&quot;RGBA&quot;)            except Exception:                # fallback: rasterize via RDKit&#x27;s MolToImage                img, err2 = mol_image_from_smiles(smiles, width, height)                if err2:                    return None, err2            return img, f&quot;绘制成功（&#123;fmt&#125;）&quot;        except Exception as e:            return None, f&quot;预览 SVG 转换失败: &#123;e&#125;&quot;    else:        img, err = mol_image_from_smiles(smiles, width, height)        if err:            return None, err        return img, f&quot;绘制成功（&#123;fmt&#125;）&quot;def handle_download(smiles, width, height, fmt):    if fmt == &quot;SVG&quot;:        svg, err = mol_svg_from_smiles(smiles, width, height)        if err:            return None, err        filename = f&quot;mol_&#123;datetime.now().strftime(&#x27;%Y%m%d_%H%M%S&#x27;)&#125;_&#123;uuid.uuid4().hex[:6]&#125;.svg&quot;        path = os.path.join(IMAGES_DIR, filename)        try:            with open(path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:                f.write(svg)        except Exception as e:            return None, f&quot;保存 SVG 失败: &#123;e&#125;&quot;        return path, f&quot;已保存为 &#123;filename&#125;（SVG），可点击下载。&quot;    else:        img, err = mol_image_from_smiles(smiles, width, height)        if err:            return None, err        filename = f&quot;mol_&#123;datetime.now().strftime(&#x27;%Y%m%d_%H%M%S&#x27;)&#125;_&#123;uuid.uuid4().hex[:6]&#125;.png&quot;        path = os.path.join(IMAGES_DIR, filename)        try:            img.save(path, format=&quot;PNG&quot;)        except Exception as e:            return None, f&quot;保存图片失败: &#123;e&#125;&quot;        return path, f&quot;已保存为 &#123;filename&#125;（PNG），可点击下载。&quot;def handle_archive(smiles, width, height, notes, fmt):    mol = Chem.MolFromSmiles(smiles.strip() if smiles else &quot;&quot;)    if mol is None:        return None, &quot;无法解析 SMILES（无效格式），未归档。&quot;    saved_image_name = &quot;&quot;    # Save chosen format preview for archive    if fmt == &quot;SVG&quot;:        svg, err = mol_svg_from_smiles(smiles, width, height)        if svg:            saved_image_name = f&quot;arch_&#123;datetime.now().strftime(&#x27;%Y%m%d_%H%M%S&#x27;)&#125;_&#123;uuid.uuid4().hex[:6]&#125;.svg&quot;            img_path = os.path.join(IMAGES_DIR, saved_image_name)            try:                with open(img_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:                    f.write(svg)            except Exception:                saved_image_name = &quot;&quot;    else:        img, err = mol_image_from_smiles(smiles, width, height)        if img:            saved_image_name = f&quot;arch_&#123;datetime.now().strftime(&#x27;%Y%m%d_%H%M%S&#x27;)&#125;_&#123;uuid.uuid4().hex[:6]&#125;.png&quot;            img_path = os.path.join(IMAGES_DIR, saved_image_name)            try:                img.save(img_path, format=&quot;PNG&quot;)            except Exception:                saved_image_name = &quot;&quot;    entry_id = uuid.uuid4().hex    ts = datetime.now().isoformat()    try:        with open(ARCHIVE_PATH, &quot;a&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:            writer = csv.writer(f)            writer.writerow([entry_id, ts, smiles.strip(), saved_image_name, notes or &quot;&quot;])    except Exception as e:        return None, f&quot;追加归档失败: &#123;e&#125;&quot;    return ARCHIVE_PATH, &quot;SMILES 已归档并写入 CSV（可点击下载或在表格中查看）。&quot;def read_archive_rows():    rows = []    if not os.path.exists(ARCHIVE_PATH):        return rows    with open(ARCHIVE_PATH, &quot;r&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:        reader = csv.reader(f)        header = next(reader, None)        for r in reader:            # ensure length            if len(r) &lt; 5:                r += [&quot;&quot;] * (5 - len(r))            rows.append(r)    return rowsdef handle_get_archive_table():    rows = read_archive_rows()    # Return header + rows for gr.Dataframe display (we&#x27;ll return rows only)    return rowsdef handle_delete_entry(entry_id):    if not entry_id:        return False, &quot;未选择 ID。&quot;    rows = read_archive_rows()    new_rows = []    deleted = False    deleted_image = &quot;&quot;    for r in rows:        if r[0] == entry_id:            deleted = True            deleted_image = r[3]            continue        new_rows.append(r)    if not deleted:        return False, &quot;未找到对应条目。&quot;    # Write back CSV with header    try:        with open(ARCHIVE_PATH, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:            writer = csv.writer(f)            writer.writerow([&quot;id&quot;, &quot;timestamp&quot;, &quot;smiles&quot;, &quot;saved_image&quot;, &quot;notes&quot;])            writer.writerows(new_rows)    except Exception as e:        return False, f&quot;更新归档文件失败: &#123;e&#125;&quot;    # Attempt to delete image file    if deleted_image:        p = os.path.join(IMAGES_DIR, deleted_image)        try:            if os.path.exists(p):                os.remove(p)        except Exception:            pass    return True, &quot;已删除该条目（如有关联图片已尝试删除）。&quot;def handle_download_entry_image(entry_id):    if not entry_id:        return None, &quot;未选择 ID。&quot;    rows = read_archive_rows()    for r in rows:        if r[0] == entry_id:            img_name = r[3]            if not img_name:                return None, &quot;该条目无保存的图片。&quot;            p = os.path.join(IMAGES_DIR, img_name)            if os.path.exists(p):                return p, &quot;找到并准备下载图片。&quot;            else:                return None, &quot;关联图片文件不存在。&quot;    return None, &quot;未找到对应条目。&quot;def handle_download_entry_row(entry_id):    if not entry_id:        return None, &quot;未选择 ID。&quot;    rows = read_archive_rows()    for r in rows:        if r[0] == entry_id:            # write single-row CSV to temp path            fname = f&quot;entry_&#123;entry_id&#125;.csv&quot;            p = os.path.join(IMAGES_DIR, fname)            try:                with open(p, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:                    writer = csv.writer(f)                    writer.writerow([&quot;id&quot;, &quot;timestamp&quot;, &quot;smiles&quot;, &quot;saved_image&quot;, &quot;notes&quot;])                    writer.writerow(r)                return p, &quot;单条记录 CSV 已准备好下载。&quot;            except Exception as e:                return None, f&quot;导出单条 CSV 失败: &#123;e&#125;&quot;    return None, &quot;未找到对应条目。&quot;# Build Gradio UIwith gr.Blocks(title=&quot;SMILES 分子绘制器（RDKit + Gradio）&quot;) as demo:    gr.Markdown(&quot;## SMILES 分子绘制器\n输入 SMILES，调整画布大小，选择导出格式（PNG/SVG），添加备注后可归档；界面可查看/下载/删除归档条目。&quot;)    with gr.Row():        with gr.Column(scale=2):            smiles_input = gr.Textbox(label=&quot;SMILES&quot;, placeholder=&quot;例如：CCO 或 c1ccccc1&quot;, lines=1)            with gr.Row():                width_input = gr.Number(value=300, label=&quot;画布宽 (px)&quot;, precision=0)                height_input = gr.Number(value=300, label=&quot;画布高 (px)&quot;, precision=0)                fmt_input = gr.Radio([&quot;PNG&quot;, &quot;SVG&quot;], value=&quot;PNG&quot;, label=&quot;输出格式&quot;)            notes_input = gr.Textbox(label=&quot;备注 / 标签（可选）&quot;, placeholder=&quot;例如：synth-1, interesting&quot;)            with gr.Row():                draw_btn = gr.Button(&quot;Draw&quot;)                download_btn = gr.Button(&quot;Download (save file)&quot;)                archive_btn = gr.Button(&quot;Archive SMILES&quot;)            status = gr.Textbox(label=&quot;状态 / 信息&quot;, interactive=False)        with gr.Column(scale=1):            preview = gr.Image(label=&quot;预览&quot;, type=&quot;pil&quot;)    gr.Markdown(&quot;### 归档管理&quot;)    with gr.Row():        with gr.Column(scale=2):            refresh_btn = gr.Button(&quot;刷新归档表格&quot;)            archive_table = gr.Dataframe(headers=[&quot;id&quot;, &quot;timestamp&quot;, &quot;smiles&quot;, &quot;saved_image&quot;, &quot;notes&quot;], interactive=False)            with gr.Row():                select_id = gr.Textbox(label=&quot;选择条目 ID（用于下载/删除）&quot;, placeholder=&quot;在表格中复制 ID 到此处&quot;)                download_entry_img_btn = gr.Button(&quot;下载条目图片&quot;)                download_entry_row_btn = gr.Button(&quot;下载条目 CSV&quot;)                delete_entry_btn = gr.Button(&quot;删除条目&quot;)            archive_file = gr.File(label=&quot;下载文件&quot;)        with gr.Column(scale=1):            archive_download_btn = gr.Button(&quot;下载完整归档 CSV（最新）&quot;)    # Wire events    draw_btn.click(fn=handle_draw, inputs=[smiles_input, width_input, height_input, fmt_input], outputs=[preview, status])    download_btn.click(fn=handle_download, inputs=[smiles_input, width_input, height_input, fmt_input], outputs=[archive_file, status])    archive_btn.click(fn=handle_archive, inputs=[smiles_input, width_input, height_input, notes_input, fmt_input], outputs=[archive_file, status])    refresh_btn.click(fn=handle_get_archive_table, inputs=None, outputs=[archive_table])    delete_entry_btn.click(fn=handle_delete_entry, inputs=[select_id], outputs=[status, archive_file]).then(        fn=handle_get_archive_table, inputs=None, outputs=[archive_table]    )    download_entry_img_btn.click(fn=handle_download_entry_image, inputs=[select_id], outputs=[archive_file, status])    download_entry_row_btn.click(fn=handle_download_entry_row, inputs=[select_id], outputs=[archive_file, status])    # also allow one-click download of whole archive    def get_archive_download():        if os.path.exists(ARCHIVE_PATH):            return ARCHIVE_PATH, &quot;完整归档 CSV（最新）&quot;        else:            return None, &quot;归档文件不存在。&quot;    archive_download_btn.click(fn=get_archive_download, inputs=None, outputs=[archive_file, status])if __name__ == &quot;__main__&quot;:    demo.launch()
+0x6. 电子木鱼
+简介
+全文唯一纯 c++ &amp; 唯一纯我手肝
+
+呃呃，有一点炸。
+
+仅适用于类 Linux 系统！
+代码
+请将代码放在专用目录下运行，因为这个有存档
+line-numbers#include &lt;iostream&gt;#include &lt;cstdlib&gt;#include &lt;cstring&gt;using namespace std;int main() &#123;	while (1) &#123;        cout &lt;&lt; &quot;电子木鱼，修改text.txt中的文字以修改内容。\n[ ]启动\n[v]vim text.sh\n[q]退出\n[c]显示信息\n&quot;;        char ch = getchar();        if (ch == &#x27; &#x27;) &#123;			freopen(&quot;text.txt&quot;, &quot;r&quot;, stdin);			string s;			getline(cin, s);            fclose(stdin);            cout &lt;&lt; &quot;请输入敲木鱼次数，谨慎输入：\n&quot;;            int n;            cin &gt;&gt; n;            while (n --) &#123;                cout &lt;&lt; s &lt;&lt; &#x27;\n&#x27;;            &#125;        &#125; else if (ch == &#x27;v&#x27;) &#123;            cout &lt;&lt; &quot;记住按[i]键入，按[&lt;esc&gt;:wq]退出\n&quot;;            system(&quot;vim text.txt&quot;);        &#125; else if (ch == &#x27;q&#x27;) &#123;            return 0;        &#125; else if (ch == &#x27;c&#x27;) &#123;            cout &lt;&lt; &quot;编写：@FlowerAccepted (洛谷 UID 1023732), 更新时间：2025-5-8 17:20\n&quot;;        &#125;        getchar();    &#125;&#125;
+0x7. 数据生成驱动
+简介
+
+很实用，放在一个地方便可以驱动所有测试数据的生成。你需要标程可执行文件和Python数据生成器。
+使用方法
+
+将此脚本保存为 worker.py，放在你的所有题目工作目录下
+将文件结构调整为：
+
+.——— worker.py——— &lt;题目1目录&gt;—————— &lt;程序 IO 名&gt;.py—————— &lt;程序 IO 名&gt;（c++编译的可执行文件）——— &lt;题目2目录&gt;——— ...
+
+cd 至你的题目目录
+运行 ../worker.py，
+输入程序 IO 名（不带扩展名）、测试点名前缀和数据数量
+数据将生成在 ./data 目录下，
+文件名格式为 [测试点名前缀][编号].in 和 [测试点名前缀][编号].ans
+每组数据会调用标准解程序，生成对应的输出文件
+生成完成后会打印每组数据的文件路径
+确保你的程序 IO 名对应的 Python 脚本能正确生成输入文件，
+并且标准解程序能正确处理输入并生成输出，且确保更新标准解程序
+
+代码
+请将代码放在你所有题目工作目录的上级
+github 仓库
+line-numbers&#x27;&#x27;&#x27;使用方法：1. 将此脚本保存为 worker.py，放在你的所有题目工作目录下2. 将文件结构调整为：.├── worker.py├── &lt;题目1目录&gt;├──├── &lt;程序 IO 名&gt;.py├──├── &lt;程序 IO 名&gt;（c++编译的可执行文件）├── &lt;题目2目录&gt;├── ...3. cd 至你的题目目录4. 运行 `../worker.py`，   输入程序 IO 名（不带扩展名）、测试点名前缀和数据数量5. 数据将生成在 ./data 目录下，   文件名格式为 &lt;测试点名前缀&gt;&lt;编号&gt;.in 和 &lt;测试点名前缀&gt;&lt;编号&gt;.ans6. 每组数据会调用标准解程序，生成对应的输出文件7. 生成完成后会打印每组数据的文件路径8. 确保你的程序 IO 名对应的 Python 脚本能正确生成输入文件，   并且标准解程序能正确处理输入并生成输出，且确保更新标准解程序&#x27;&#x27;&#x27;import osimport shutilimport subprocessdef main():    s = input(&quot;请输入程序 IO 名（不带扩展名）: &quot;).strip()    t = input(&quot;请输入测试点名前缀: &quot;).strip()    n = int(input(&quot;请输入数据数量: &quot;).strip())    data_dir = &quot;./data&quot;    os.makedirs(data_dir, exist_ok=True)    for i in range(1, n + 1):        # 生成数据        subprocess.run([&quot;python&quot;, f&quot;./&#123;s&#125;.py&quot;], check=True)        # 调用标准解        subprocess.run([f&quot;./&#123;s&#125;&quot;], check=True)        # 文件名        in_src = f&quot;./&#123;s&#125;.in&quot;        out_src = f&quot;./&#123;s&#125;.out&quot;        in_dst = os.path.join(data_dir, f&quot;&#123;t&#125;&#123;i&#125;.in&quot;)        ans_dst = os.path.join(data_dir, f&quot;&#123;t&#125;&#123;i&#125;.ans&quot;)        # 移动并重命名        shutil.move(in_src, in_dst)        shutil.move(out_src, ans_dst)        print(f&quot;第&#123;i&#125;组数据生成完成: &#123;in_dst&#125;, &#123;ans_dst&#125;&quot;)if __name__ == &quot;__main__&quot;:    main()
+]]></content>
+  </entry>
+</search>

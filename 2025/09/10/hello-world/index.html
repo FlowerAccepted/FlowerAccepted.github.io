@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hello World | FlowerAccepted's Blog</title><meta name="author" content="FlowerAccepted"><meta name="copyright" content="FlowerAccepted"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="https://floweraccepted.github.io/2025/09/10/hello-world/index.html">
+<meta property="og:site_name" content="FlowerAccepted&#39;s Blog">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://floweraccepted.github.io/img/avatar.jpeg">
+<meta property="article:published_time" content="2025-09-10T12:58:39.346Z">
+<meta property="article:modified_time" content="2025-09-10T12:58:39.346Z">
+<meta property="article:author" content="FlowerAccepted">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://floweraccepted.github.io/img/avatar.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hello World",
+  "url": "https://floweraccepted.github.io/2025/09/10/hello-world/",
+  "image": "https://floweraccepted.github.io/img/avatar.jpeg",
+  "datePublished": "2025-09-10T12:58:39.346Z",
+  "dateModified": "2025-09-10T12:58:39.346Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FlowerAccepted",
+      "url": "https://FlowerAccepted.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/cookie.png"><link rel="canonical" href="https://floweraccepted.github.io/2025/09/10/hello-world/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":128,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hello World',
+  isHighlightShrink: true,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/font_css.css"><link rel="stylesheet" href="/css/luogu_logo.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/bg.png);"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/what.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">FlowerAccepted's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Hello World</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="post-info"><h1 class="post-title">Hello World</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-10T12:58:39.346Z" title="发表于 2025-09-10 12:58:39">2025-09-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-10T12:58:39.346Z" title="更新于 2025-09-10 12:58:39">2025-09-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2>Quick Start</h2>
+<h3>Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3>Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3>Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3>Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://FlowerAccepted.github.io">FlowerAccepted</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://floweraccepted.github.io/2025/09/10/hello-world/">https://floweraccepted.github.io/2025/09/10/hello-world/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://FlowerAccepted.github.io" target="_blank">FlowerAccepted's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/09/10/ggfp/" title="格拉斯狗的飞逝の嗑人概率论"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">格拉斯狗的飞逝の嗑人概率论</div></div><div class="info-2"><div class="info-item-1">stO 原作者glass_goldfish Orz 在此严肃学习并转载，望大家也要严肃学习。  Part 1 前置知识（知道的敬请跳过） Part I 钟型曲线 首先，我们要了解掷硬币。对于掷硬币，在大多数情况，概率都是一半对一半（50%50\%50% 正 50%50\%50% 反）。也就是说，当我们掷硬币的次数越多，那么抛到正面和反面的次数就越趋近于一半（大数定律）。抛的次数越多，那么这边抛到某个特定次数的概率就是正态分布曲线，即钟型曲线，如图。  （图片来源于百度） 以上纵轴是发生的概率，横轴是正面（或反面）出现的次数。这里正中央的灰色细线是代表正好 50%50\%50%，两边是分别递减。可以发现，自中间向两边，概率减小的会越来越缓慢，但是比较旁边的“地带”概率都是趋近于 000 的。这种基本事实叫做中心极限定理。 Part II ppp 值的定义（简单死了） “ppp 值”这个词看上去老高深了，其实就是一句话：某个事情发生的概率。就这样，完了。 在数学、科学上，我们经常以 ppp 值取 5%5\%5% 为“可置信水平”，即不发生概率在 5%5\%5% 以下就是基本上会发生（...</div></div></div></a><a class="pagination-related" href="/2025/09/03/%E5%B0%91%E5%B9%B4%E5%BF%97%E7%88%B1%E5%9B%BD%E6%83%85/" title="少年志爱国情"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">少年志爱国情</div></div><div class="info-2"><div class="info-item-1">叠层甲：这回的作文会不会一如既往的糖呢？好怕怕，轻喷～ 少年志爱国情–阅兵式观后感 2025 年 9 月 3 日，是一个值得铭记的日期，是中国人民抗日战争胜利暨世界反法西斯战争胜利 80 周年日。盛大的阅兵仪式，在天安门广场开展，令我心潮澎湃，也被两个景象，打动至深。 先是参加过抗战几名百岁老兵。有“老八路”，也有参加抗战的国民党军人。国家危难之际，中共提出“统一战线”，竟然得到了被派来讨伐他们的两位少帅的支持，以至最后当局被迫妥协。可见，在爱国情面前，内战的勾心斗角、和任何阻挠其的想法、势力都是多么不堪一击。为什么我眼里常含泪水？因为我对这片土地爱得深沉！有了爱国情，人民最终取得了抗战的伟大胜利。 解说员读出老兵们的名字及他们的年龄：×××，一百岁，×××，一百零二岁……我不由得一怔：他们参军之时只不到二十岁！八九十年前，他们还是少年，在捐躯赴国难之少年志的驱使下，投身抗日事业，志向最终升华为爱国情感，永垂不朽！ 再是最后一个接受检阅的梯队：核导弹二队。一枚大国重器，需三辆几十轮的军车分开驮着，雄赳赳、缓缓地经过天安门城楼。这，是守卫祖国尊严主权的闪亮王牌，也是广大科研工作者们...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FlowerAccepted</div><div class="author-info-description">Meow</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://luogu.com.cn/user/1023732"><i class="fab luogu-logo"></i><span>关注我喵～AwA</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">OIer 你们好啊！这是我的 github page 博客，欢迎大家来？~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/10/ggfp/" title="格拉斯狗的飞逝の嗑人概率论">格拉斯狗的飞逝の嗑人概率论</a><time datetime="2025-09-10T20:50:09.000Z" title="发表于 2025-09-10 20:50:09">2025-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/10/hello-world/" title="Hello World">Hello World</a><time datetime="2025-09-10T12:58:39.346Z" title="发表于 2025-09-10 12:58:39">2025-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/03/%E5%B0%91%E5%B9%B4%E5%BF%97%E7%88%B1%E5%9B%BD%E6%83%85/" title="少年志爱国情">少年志爱国情</a><time datetime="2025-09-03T14:55:45.000Z" title="发表于 2025-09-03 14:55:45">2025-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/%E9%9A%8F%E6%89%8B%E9%80%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B0%8F%E5%B7%A5%E5%85%B7/" title="随手造的实用小工具">随手造的实用小工具</a><time datetime="2025-09-02T20:11:49.000Z" title="发表于 2025-09-02 20:11:49">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/%E4%B8%BB%E9%A1%B5/" title="主页">主页</a><time datetime="2025-09-02T19:34:42.000Z" title="发表于 2025-09-02 19:34:42">2025-09-02</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/what.svg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By FlowerAccepted</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="找不到文章？试试搜索！" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
