@@ -1,5 +1,5 @@
 # 欢迎来到我的 GitHub Pages！
-本页面将移动到 [Vercel](https://floweraccepted.vercel.app/github-page-mirror/)，敬请期待更多彩的呈现～
+本页面已移动到 [Vercel](https://floweraccepted.vercel.app/github-page-mirror/)，敬请期待更多彩的呈现～
 
 [**新个人网站**](https://floweraccepted.vercel.app)
 
