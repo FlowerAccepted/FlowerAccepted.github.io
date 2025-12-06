@@ -1,72 +1,254 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Page</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FlowerAccepted's GitHub Page</title>
+  <link rel="icon" href="favicon.png" type="image/png">
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    /* ---------- 页面基础 ---------- */
+    :root{
+      --card-width: 460px;
+      --glass-bg: rgba(255,255,255,0.18);
+      --glass-border: rgba(255,255,255,0.35);
+      --text: #0f1720;
+      --muted: #4b5563;
+    }
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: #111;
+      color:var(--text);
+      overflow:hidden;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            background: #f5f6fa;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+    /* ---------- 背景层（平滑渐变/背景图切换） ---------- */
+    .bg-layer{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      overflow:hidden;
+    }
+    .bg-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.02);
+      transition:opacity 1s ease, transform 8s linear;
+      opacity:0;
+      will-change:opacity,transform;
+    }
+    .bg-slide.show{ opacity:1; transform:scale(1); }
 
-        .card {
-            background: #fff;
-            padding: 40px;
-            width: 420px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            text-align: center;
-        }
+    /* 温和动态（若用户禁用动画则不动） */
+    @media (prefers-reduced-motion: reduce) {
+      .bg-slide{ transition:none; transform:none; }
+    }
 
-        .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-            margin-bottom: 20px;
-        }
+    /* ---------- 中央卡片（磨玻璃） ---------- */
+    .card-wrap{
+      position:relative;
+      z-index:2;
+      padding:28px;
+      width:clamp(320px,var(--card-width),92vw);
+      border-radius:16px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      /* 内部半透明卡 + 边框 + 模糊 */
+      backdrop-filter: blur(10px) saturate(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(120%);
+      border: 1px solid rgba(255,255,255,0.06);
+      flex-direction:column;
+      text-align:left;
+    }
 
-        #content {
-            text-align: left;
-            margin-top: 20px;
-            color: #333;
-            line-height: 1.6;
-        }
+    /* 头像 */
+    .avatar{
+      width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.14);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+      margin:0 auto 8px auto;
+      display:block;
+    }
 
-        a { color: #0070f3; }
-        a:hover { text-decoration: underline; }
-    </style>
+    /* 标题与元信息 */
+    .title{
+      text-align:center;
+      margin:0;
+      font-size:1.35rem;
+      font-weight:600;
+      color: white;
+      text-shadow:0 2px 8px rgba(0,0,0,0.5);
+    }
+    .subtitle{
+      text-align:center;
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* markdown 内容容器 */
+    #md {
+      margin-top:14px;
+      color:#eef1f5;
+      line-height:1.7;
+    }
+    #md h1,#md h2,#md h3{ color: white; margin:0 0 8px 0;}
+    #md p{ margin:8px 0;}
+    #md a{ color: #9ae6ff; text-decoration:underline; }
+
+    /* ---------- 控件（背景切换按钮） ---------- */
+    .controls{
+      display:flex;
+      gap:8px;
+      justify-content:center;
+      margin-top:14px;
+    }
+    .btn{
+      background: rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.06);
+      color:white;
+      padding:8px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:0.95rem;
+      backdrop-filter: blur(4px);
+    }
+    .btn:active{ transform:translateY(1px); }
+
+    /* ---------- 小屏布局微调 ---------- */
+    @media (min-width:880px){
+      .card-wrap{ flex-direction:column; padding:36px; }
+    }
+
+    /* 保证背景层在卡片后面 */
+    .page{
+      position:relative;
+      z-index:1;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px;
+    }
+
+    /* 轻微边缘晕染，提升可读性 */
+    .vignette{
+      position:fixed;inset:0;pointer-events:none;
+      background: radial-gradient(60% 60% at 50% 40%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%);
+      z-index:1;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="card">
-        <img class="avatar" src="avatar.png" alt="avatar" />
-        <div id="content"></div>
-    </div>
+  <!-- 背景容器：把你要的背景图放 assets/bg1.jpg/bg2.jpg/... -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-slide" style="background-image:url('assets/bg1.png')"></div>
+    <div class="bg-slide" style="background-image:url('assets/bg2.png')"></div>
+    <div class="bg-slide" style="background-image:url('assets/bg3.png')"></div>
+    <div class="bg-slide" style="background-image:url('assets/bg4.png')"></div>
+    <!-- 可按需继续添加 -->
+  </div>
 
-    <!-- 内置轻量 Markdown 渲染（marked.js） -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <div class="vignette" aria-hidden="true"></div>
 
-    <script>
-        // 在这里写你的 Markdown 文本（256 字以内）
-        const markdownText = `
-# 欢迎
-本页面将移动到 Vercel，敬请期待更多彩的呈现
-        `;
+  <main class="page" role="main">
+    <article class="card-wrap" role="article" aria-label="个人卡片">
+      <img class="avatar" src="avatar.png" alt="头像" />
+      <h1 class="title">FlowerAccepted</h1>
 
-        document.getElementById("content").innerHTML = marked.parse(markdownText);
-    </script>
+      <!-- Markdown 渲染内容放这里 -->
+      <div id="md" aria-live="polite">正在加载内容…</div>
 
+      <!-- 控件 -->
+      <div class="controls" role="toolbar" aria-label="背景切换控制">
+        <button id="prevBtn" class="btn" title="上一张背景">◀</button>
+        <button id="playBtn" class="btn" title="暂停/播放">⏸</button>
+        <button id="nextBtn" class="btn" title="下一张背景">▶</button>
+      </div>
+    </article>
+  </main>
+
+  <!-- marked.js CDN（渲染 Markdown） -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    /* ========== 背景切换逻辑 ========== */
+    const slides = Array.from(document.querySelectorAll('.bg-slide'));
+    let idx = 0;
+    let playing = true;
+    const INTERVAL = 6000; // 切换间隔 ms
+    let timer = null;
+
+    function show(i){
+      slides.forEach((s,si)=> s.classList.toggle('show', si===i));
+    }
+    function next(){
+      idx = (idx+1) % slides.length;
+      show(idx);
+    }
+    function prev(){
+      idx = (idx-1 + slides.length) % slides.length;
+      show(idx);
+    }
+    function play(){
+      if(timer) clearInterval(timer);
+      timer = setInterval(()=> next(), INTERVAL);
+      playing = true;
+      document.getElementById('playBtn').textContent = '⏸';
+    }
+    function pause(){
+      if(timer) { clearInterval(timer); timer = null; }
+      playing = false;
+      document.getElementById('playBtn').textContent = '▶';
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', ()=> { next(); if(playing){ pause(); } });
+    document.getElementById('prevBtn').addEventListener('click', ()=> { prev(); if(playing){ pause(); } });
+    document.getElementById('playBtn').addEventListener('click', ()=> { playing? pause() : play(); });
+
+    // 初始显示第一张
+    show(idx);
+    // 尊重用户减少动画设置
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce) play();
+
+    /* ========== 加载并渲染 Markdown（content.md） ========== */
+    async function loadMarkdown(){
+      try{
+        const resp = await fetch('content.md', {cache: "no-cache"});
+        if(!resp.ok) throw new Error('无法加载 content.md：' + resp.status);
+        const md = await resp.text();
+        // 限制长度：如果需要，你可以在 content.md 自行控制字符数
+        document.getElementById('md').innerHTML = marked.parse(md);
+      }catch(e){
+        document.getElementById('md').textContent = '加载失败：' + e.message;
+      }
+    }
+    loadMarkdown();
+
+    /* ========== 预加载背景（平滑过渡） ========== */
+    slides.forEach(s=>{
+      const url = s.style.backgroundImage.slice(5,-2);
+      const img = new Image();
+      img.src = url;
+      img.onload = ()=> { /* noop */ };
+    });
+
+    /* ========== 可选：键盘操作（左右切换、空格播放/暂停） ========== */
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowRight') { next(); pause(); }
+      if(e.key === 'ArrowLeft') { prev(); pause(); }
+      if(e.code === 'Space') { e.preventDefault(); playing? pause(): play(); }
+    });
+  </script>
 </body>
 </html>
